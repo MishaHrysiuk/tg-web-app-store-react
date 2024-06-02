@@ -55,6 +55,8 @@ const products = [
     },
 ];
 
+const url = process.env.WEB_URL;
+
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
         return (acc += item.price);
@@ -71,7 +73,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         };
-        fetch("http://85.119.146.179:8000/web-data", {
+        fetch(`${url}/web-data`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
