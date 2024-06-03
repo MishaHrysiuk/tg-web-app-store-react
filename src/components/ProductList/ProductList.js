@@ -55,7 +55,7 @@ const products = [
     },
 ];
 
-const url = process.env.WEB_URL;
+const url = process.env.REACT_APP_WEB_URL;
 
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
@@ -83,6 +83,7 @@ const ProductList = () => {
     }, [addedItems]);
 
     useEffect(() => {
+        console.log(process.env.REACT_APP_WEB_URL);
         tg.onEvent("mainButtonClicked", onSendData);
         return () => {
             tg.offEvent("mainButtonClicked", onSendData);
