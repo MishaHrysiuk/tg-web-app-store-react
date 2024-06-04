@@ -90,8 +90,12 @@ const ProductList = () => {
         };
     }, [onSendData]);
 
+    const alreadyAddedProduct = (product) => {
+        return addedItems.find((item) => item.id === product.id);
+    };
+
     const onAdd = (product) => {
-        const alreadyAdded = addedItems.find((item) => item.id === product.id);
+        const alreadyAdded = alreadyAddedProduct(product);
         let newItems = [];
 
         if (alreadyAdded) {
@@ -115,7 +119,12 @@ const ProductList = () => {
     return (
         <div className={"list"}>
             {products.map((item) => (
-                <ProductItem product={item} onAdd={onAdd} className={"item"} />
+                <ProductItem
+                    product={item}
+                    alreadyAdded={alreadyAddedProduct(item)}
+                    onAdd={onAdd}
+                    className={"item"}
+                />
             ))}
         </div>
     );
