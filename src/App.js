@@ -12,13 +12,8 @@ function App() {
     useEffect(() => {
         tg.ready();
         tg.SettingsButton.show();
-        tg.SettingsButton.setParams({
-            text: `Settings}`,
-        });
         tg.BackButton.show();
-        tg.BackButton.setParams({
-            text: `Back`,
-        });
+        tg.PopupButton.show();
     }, []);
 
     return (
