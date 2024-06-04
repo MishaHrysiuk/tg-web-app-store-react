@@ -13,7 +13,6 @@ function App() {
         tg.ready();
         tg.SettingsButton.show();
         tg.BackButton.show();
-        tg.PopupButton.show();
     }, []);
 
     return (
