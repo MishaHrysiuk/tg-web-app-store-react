@@ -28,17 +28,17 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         };
-        fetch(`${url}/api/user/order/${user.id}`, {
+        fetch(`${url}/user/order/${user.id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
         });
-    }, [addedItems]);
+    }, [addedItems, user, queryId]);
 
     useEffect(() => {
-        fetch(`${url}/product`)
+        fetch(`${url}/api/product`)
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
@@ -48,7 +48,7 @@ const ProductList = () => {
         return () => {
             tg.offEvent("mainButtonClicked", onSendData);
         };
-    }, [onSendData]);
+    }, [onSendData, tg]);
 
     const alreadyAddedProduct = (product) => {
         return addedItems.find((item) => item.id === product.id);
