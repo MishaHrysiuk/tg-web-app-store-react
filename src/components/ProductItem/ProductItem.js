@@ -2,13 +2,7 @@ import React from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import "./ProductItem.css";
 
-const ProductItem = ({
-    product,
-    className,
-    onAdd,
-    alreadyAdded,
-    ThemeParams,
-}) => {
+const ProductItem = ({ product, className, onAdd, alreadyAdded }) => {
     const onAddHandler = () => {
         onAdd(product);
     };
@@ -23,11 +17,7 @@ const ProductItem = ({
                     Стоимость: <b>{product.price}</b>
                 </span>
             </div>
-            <CustomButton
-                variant="contained"
-                onClick={onAddHandler}
-                ThemeParams={ThemeParams}
-            >
+            <CustomButton variant="contained" onClick={onAddHandler}>
                 {alreadyAdded ? "Прибрати з корзини" : "Добавить в корзину"}
             </CustomButton>
         </div>
