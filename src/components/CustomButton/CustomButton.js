@@ -11,7 +11,7 @@ const CustomButton = () => {
         backgroundColor: tg.ThemeParams?.button_color,
     });
 
-    return CustomButton;
+    return <CustomButton />;
 };
 
 export default CustomButton;
