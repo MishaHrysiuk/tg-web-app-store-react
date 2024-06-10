@@ -11,7 +11,6 @@ function App() {
 
     useEffect(() => {
         tg.ready();
-        tg.SettingsButton.show();
         tg.BackButton.show();
     }, []);
 
