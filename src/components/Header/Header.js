@@ -4,9 +4,10 @@ import { useTelegram } from "../../hooks/useTelegram";
 import "./Header.css";
 
 const Header = () => {
-    const { user, onClose, ThemeParams } = useTelegram();
+    const { user, onClose, ThemeParams, tg } = useTelegram();
 
     console.log(ThemeParams);
+    console.log(tg);
 
     return (
         <div className={"header"}>
