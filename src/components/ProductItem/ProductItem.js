@@ -17,7 +17,7 @@ const ProductItem = ({ product, className, onAdd, alreadyAdded }) => {
                     Стоимость: <b>{product.price}</b>
                 </span>
             </div>
-            <CustomButton onClick={onAddHandler}>
+            <CustomButton variant="contained" onClick={onAddHandler}>
                 {alreadyAdded ? "Прибрати з корзини" : "Добавить в корзину"}
             </CustomButton>
         </div>
