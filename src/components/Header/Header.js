@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <div className={"header"}>
-            <CustomButton color="error" variant="contained" onClick={onClose}>
+            <CustomButton variant="contained" onClick={onClose}>
                 Закрыть
             </CustomButton>
             <span className={"username"}>{user?.username}</span>
