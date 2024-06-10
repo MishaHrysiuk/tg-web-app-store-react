@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/Button";
+import CustomButton from "../CustomButton/CustomButton";
 import "./ProductItem.css";
 
 const ProductItem = ({ product, className, onAdd, alreadyAdded }) => {
@@ -17,9 +17,9 @@ const ProductItem = ({ product, className, onAdd, alreadyAdded }) => {
                     Стоимость: <b>{product.price}</b>
                 </span>
             </div>
-            <Button className={"add-btn"} onClick={onAddHandler}>
+            <CustomButton onClick={onAddHandler}>
                 {alreadyAdded ? "Прибрати з корзини" : "Добавить в корзину"}
-            </Button>
+            </CustomButton>
         </div>
     );
 };
