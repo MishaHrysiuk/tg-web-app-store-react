@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, colors } from "@mui/material";
+import { Button } from "@mui/material";
 import { useTelegram } from "../../hooks/useTelegram";
 import { styled } from "@mui/material/styles";
 
@@ -7,11 +7,11 @@ const CustomButton = (props) => {
     const { tg } = useTelegram();
 
     const CustomButton = styled(Button)({
-        color: tg.ThemeParams?.button_text_color,
+        color: tg.ThemeParams?.button_text_color || "#55FF55",
         backgroundColor: tg.ThemeParams?.button_color,
     });
 
-    console.log(tg.themeParams);
+    console.log(CustomButton);
 
     return <CustomButton {...props} />;
 };
