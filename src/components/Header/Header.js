@@ -4,11 +4,17 @@ import { useTelegram } from "../../hooks/useTelegram";
 import "./Header.css";
 
 const Header = () => {
-    const { user, onClose } = useTelegram();
+    const { user, onClose, ThemeParams } = useTelegram();
+
+    console.log(ThemeParams);
 
     return (
         <div className={"header"}>
-            <CustomButton variant="contained" onClick={onClose}>
+            <CustomButton
+                variant="contained"
+                onClick={onClose}
+                ThemeParams={ThemeParams}
+            >
                 Закрыть
             </CustomButton>
             <span className={"username"}>{user?.username}</span>
