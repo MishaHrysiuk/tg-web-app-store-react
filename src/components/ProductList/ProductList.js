@@ -15,6 +15,8 @@ const getTotalPrice = (items = []) => {
 const ProductList = () => {
     const [addedItems, setAddedItems] = useState([]);
     const [products, setProducts] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+    const [isError, setError] = useState(false);
     const { tg, queryId, user } = useTelegram();
 
     const onSendData = useCallback(() => {
@@ -40,7 +42,11 @@ const ProductList = () => {
     useEffect(() => {
         fetch(`${url}/api/product`)
             .then((res) => res.json())
-            .then((data) => setProducts(data));
+            .then((data) => {
+                setProducts(data);
+                setLoading(false);
+            })
+            .catch((err) => setError(true));
     }, []);
 
     useEffect(() => {
@@ -78,14 +84,20 @@ const ProductList = () => {
 
     return (
         <div className={"list"}>
-            {products.map((item) => (
-                <ProductItem
-                    product={item}
-                    alreadyAdded={alreadyAddedProduct(item)}
-                    onAdd={onAdd}
-                    className={"item"}
-                />
-            ))}
+            {isError ? (
+                <div>Error with server</div>
+            ) : isLoading ? (
+                <div>Loading...</div>
+            ) : (
+                products.map((item) => (
+                    <ProductItem
+                        product={item}
+                        alreadyAdded={alreadyAddedProduct(item)}
+                        onAdd={onAdd}
+                        className={"item"}
+                    />
+                ))
+            )}
         </div>
     );
 };
