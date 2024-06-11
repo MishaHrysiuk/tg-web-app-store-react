@@ -1,17 +1,23 @@
 import React from "react";
-import CustomButton from "../CustomButton/CustomButton";
 import { useTelegram } from "../../hooks/useTelegram";
+import { Avatar, Caption } from "@telegram-apps/telegram-ui";
 import "./Header.css";
 
 const Header = () => {
-    const { user, onClose } = useTelegram();
+    const { user } = useTelegram();
 
     return (
         <div className={"header"}>
-            <CustomButton variant="contained" onClick={onClose}>
-                Закрыть
-            </CustomButton>
-            <span className={"username"}>{user?.username}</span>
+            <Avatar
+                size={40}
+                src={
+                    user?.photo_url ||
+                    "https://avatars.githubusercontent.com/u/84640980?v=4"
+                }
+            />
+            <Caption level="1" weight="1" className={"username"}>
+                {user?.username || "test_test"}
+            </Caption>
         </div>
     );
 };

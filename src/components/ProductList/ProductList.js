@@ -3,6 +3,7 @@ import "./ProductList.css";
 import ProductItem from "../ProductItem/ProductItem";
 import { useTelegram } from "../../hooks/useTelegram";
 import { useCallback, useEffect } from "react";
+import { Spinner } from "@telegram-apps/telegram-ui";
 
 const url = process.env.REACT_APP_WEB_URL;
 
@@ -87,7 +88,7 @@ const ProductList = () => {
             {isError ? (
                 <div>Error with server</div>
             ) : isLoading ? (
-                <div>Loading...</div>
+                <Spinner size="m" />
             ) : (
                 products.map((item) => (
                     <ProductItem
