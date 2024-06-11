@@ -6,6 +6,8 @@ import "./Header.css";
 const Header = () => {
     const { user } = useTelegram();
 
+    console.log(user);
+
     return (
         <div className={"header"}>
             <Avatar
